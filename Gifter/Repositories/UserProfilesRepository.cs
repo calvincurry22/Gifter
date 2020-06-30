@@ -6,11 +6,11 @@ using Gifter.Models;
 
 namespace Gifter.Repositories
 {
-    public class UserProfileRepository
+    public class UserProfilesRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public UserProfileRepository(ApplicationDbContext context)
+        public UserProfilesRepository(ApplicationDbContext context)
         {
             _context = context;
         }
