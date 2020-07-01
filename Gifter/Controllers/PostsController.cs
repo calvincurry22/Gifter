@@ -7,12 +7,14 @@ namespace Gifter.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PostController : ControllerBase
+    public class PostsController : ControllerBase
     {
         private readonly PostRepository _postRepository;
-        public PostController(ApplicationDbContext context)
+        private readonly CommentsRepository _commentsRepository;
+        public PostsController(ApplicationDbContext context)
         {
             _postRepository = new PostRepository(context);
+            _commentsRepository = new CommentsRepository(context);
         }
 
         [HttpGet]
