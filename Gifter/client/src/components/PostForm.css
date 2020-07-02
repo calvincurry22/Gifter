@@ -1,0 +1,12 @@
+.gifForm {
+    width: 30%;
+}
+.form-group {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-label {
+    text-align: left;
+    width: 100px;
+}
