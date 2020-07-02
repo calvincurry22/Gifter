@@ -19,6 +19,7 @@ export const PostProvider = (props) => {
             },
             body: JSON.stringify(post),
         })
+            //comment
             .then(getAllPosts)
     };
 
