@@ -10,21 +10,15 @@ export default () => {
     const title = useRef()
     const caption = useRef()
     const userProfileId = useRef()
-    const { getAllPosts } = useContext(PostContext)
+    const { addPost } = useContext(PostContext)
 
     const createNewGif = () => {
-        return fetch("api/posts", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                title: title.current.value,
-                imageUrl: imageUrl.current.value,
-                caption: caption.current.value,
-                dateCreated: new Date().toJSON(),
-                userProfileId: userProfileId.current.value
-            })
+        addPost({
+            title: title.current.value,
+            imageUrl: imageUrl.current.value,
+            caption: caption.current.value,
+            dateCreated: new Date().toJSON(),
+            userProfileId: userProfileId.current.value
         })
     }
 

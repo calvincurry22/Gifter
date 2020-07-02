@@ -16,9 +16,9 @@ const Post = ({ post }) => {
                 </p>
                 <div>
                     {
-                        post.comments.map(comment => {
-                            return <p>{comment.message}</p>
-                        })
+                        (post.comments == null)
+                            ? false
+                            : post.comments.map(comment => <p>{comment.message}</p>)
                     }
                 </div>
             </CardBody>
