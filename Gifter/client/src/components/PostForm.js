@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import { Form, Button, Card } from "reactstrap";
 import "./PostForm.css";
+import { PostContext } from "../providers/PostProvider";
 
 
 export default () => {
@@ -9,6 +10,7 @@ export default () => {
     const title = useRef()
     const caption = useRef()
     const userProfileId = useRef()
+    const { getAllPosts } = useContext(PostContext)
 
     const createNewGif = () => {
         return fetch("api/posts", {
