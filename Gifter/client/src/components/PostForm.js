@@ -11,7 +11,7 @@ export default () => {
     const userProfileId = useRef()
 
     const createNewGif = () => {
-        fetch("api/posts", {
+        return fetch("api/posts", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -60,12 +60,12 @@ namespace Gifter.Repositories
             _context.SaveChanges();
         }
 
-        public List<Post> Search(string criterion, string captionCriterion, bool sortDescending)
+        public List<Post> Search(string criterion, bool sortDescending)
         {
             var query = _context.Post
                                 .Include(p => p.UserProfile)
-                                .Where(p => p.Title.Contains(criterion))
-                                .Where(p => p.Caption.Contains(captionCriterion));
+                                .Where(p => p.Title.Contains(criterion));
+                                //.Where(p => p.Caption.Contains(captionCriterion));
 
             return sortDescending
                 ? query.OrderByDescending(p => p.DateCreated).ToList()
@@ -76,7 +76,7 @@ namespace Gifter.Repositories
         {
             var query = _context.Post
                                 .Include(p => p.UserProfile)
-                                .Where(p => p.DateCreated >= criterion)
+                                .Where(p => p.DateCreated <= criterion)
                                 .ToList();
             return query;
         }
