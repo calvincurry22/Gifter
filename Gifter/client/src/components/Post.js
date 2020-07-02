@@ -18,7 +18,7 @@ const Post = ({ post }) => {
                     {
                         (post.comments == null)
                             ? false
-                            : post.comments.map(comment => <p>{comment.message}</p>)
+                            : post.comments.map(comment => <p key={comment.id}>{comment.message}</p>)
                     }
                 </div>
             </CardBody>

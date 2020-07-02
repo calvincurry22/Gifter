@@ -1,5 +1,5 @@
 import React, { useRef, useContext } from "react";
-import { Form, Button, Card } from "reactstrap";
+import { Form, Button } from "reactstrap";
 import "./PostForm.css";
 import { PostContext } from "../providers/PostProvider";
 
