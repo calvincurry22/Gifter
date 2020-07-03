@@ -28,6 +28,12 @@
   color: #61dafb;
 }
 
+.formBarContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +42,4 @@
     transform: rotate(360deg);
   }
 }
+

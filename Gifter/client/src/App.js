@@ -10,8 +10,10 @@ function App() {
   return (
     <div className="App">
       <PostProvider>
-        <PostForm />
-        <SearchBar setTerms={setTerms} />
+        <div className="formBarContainer">
+          <PostForm />
+          <SearchBar setTerms={setTerms} />
+        </div>
         <PostList searchTerms={searchTerms} />
       </PostProvider>
     </div>
