@@ -20,6 +20,11 @@ export default () => {
             dateCreated: new Date().toJSON(),
             userProfileId: userProfileId.current.value
         })
+
+        document.querySelector("#postImage").value = ""
+        document.querySelector("#postTitle").value = ""
+        document.querySelector("#postCaption").value = ""
+        document.querySelector("#postUserId").value = ""
     }
 
     return (
@@ -31,6 +36,7 @@ export default () => {
                     <input type="text" name="imageUrl" required className="form-control"
                         placeholder="type url here..."
                         ref={imageUrl}
+                        id="postImage"
                     />
                 </div>
             </fieldset>
@@ -40,6 +46,7 @@ export default () => {
                     <input type="text" name="title" required className="form-control"
                         placeholder="type title here..."
                         ref={title}
+                        id="postTitle"
                     />
                 </div>
             </fieldset>
@@ -49,6 +56,7 @@ export default () => {
                     <input type="text" name="caption" required className="form-control"
                         placeholder="type caption here..."
                         ref={caption}
+                        id="postCaption"
                     />
                 </div>
             </fieldset>
@@ -57,6 +65,7 @@ export default () => {
                     <label htmlFor="userProfileId" className="form-label">User Id:</label>
                     <input type="text" name="userProfileId" required className="form-control"
                         ref={userProfileId}
+                        id="postUserId"
                     />
                 </div>
             </fieldset>
