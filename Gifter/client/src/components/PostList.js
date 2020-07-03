@@ -5,12 +5,19 @@ import Post from "./Post";
 const PostList = ({ searchTerms }) => {
     const { posts, getAllPosts, searchPosts } = useContext(PostContext);
 
-    useEffect(() => {
-        getAllPosts();
-    }, []);
+    // useEffect(() => {
+    //     getAllPosts();
+    // }, []);
 
     useEffect(() => {
-        searchPosts(searchTerms)
+        console.log(searchTerms)
+        if (searchTerms === null || searchTerms === "") {
+
+            getAllPosts();
+
+        } else {
+            searchPosts(searchTerms);
+        }
     }, [searchTerms])
 
     return (
