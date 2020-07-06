@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const Post = ({ post }) => {
     const location = useLocation()
-    console.log(location)
+
     return (
         <Card className="m-4">
             <p className="text-left px-2">Posted by: &nbsp;
