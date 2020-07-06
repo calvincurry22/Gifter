@@ -4,6 +4,7 @@ import PostList from "./PostList";
 import PostForm from "./PostForm";
 import SearchBar from "./SearchBar";
 import PostDetails from "./PostDetails";
+import UserPosts from "./UserPosts";
 
 const ApplicationViews = () => {
     const [searchTerms, setTerms] = useState(null)
@@ -20,6 +21,10 @@ const ApplicationViews = () => {
 
             <Route path="/posts/:id">
                 <PostDetails />
+            </Route>
+
+            <Route path="/users/:id">
+                <UserPosts />
             </Route>
         </Switch>
     );
