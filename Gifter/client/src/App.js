@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import { PostProvider } from "./providers/PostProvider";
-import PostList from "./components/PostList";
-import PostForm from "./components/PostForm";
-import SearchBar from "./components/SearchBar";
 import { BrowserRouter as Router } from "react-router-dom";
 import ApplicationViews from "./components/ApplicationViews";
+import Header from "./components/Header";
 
 function App() {
 
@@ -13,6 +11,7 @@ function App() {
     <div className="App">
       <Router>
         <PostProvider>
+          <Header />
           <ApplicationViews />
         </PostProvider>
       </Router>
