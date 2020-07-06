@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import PostList from "./PostList";
 import PostForm from "./PostForm";
 import SearchBar from "./SearchBar";
+import PostDetails from "./PostDetails";
 
 const ApplicationViews = () => {
     const [searchTerms, setTerms] = useState(null)
@@ -17,7 +18,9 @@ const ApplicationViews = () => {
                 <PostForm />
             </Route>
 
-            <Route path="/posts/:id">{/* TODO: Post Details Component */}</Route>
+            <Route path="/posts/:id">
+                <PostDetails />
+            </Route>
         </Switch>
     );
 };
