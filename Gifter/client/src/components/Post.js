@@ -1,8 +1,10 @@
 import React from "react";
 import { Card, CardImg, CardBody } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Post = ({ post }) => {
+    const location = useLocation()
+    console.log(location)
     return (
         <Card className="m-4">
             <p className="text-left px-2">Posted by: &nbsp;
@@ -12,9 +14,14 @@ const Post = ({ post }) => {
             </p>
             <CardImg top src={post.imageUrl} alt={post.title} />
             <CardBody>
-                <Link to={`/posts/${post.id}`}>
-                    <strong>{post.title}</strong>
-                </Link>
+                {
+                    (location.pathname === `/posts/${post.id}`)
+                        ? <strong>{post.title}</strong>
+                        : <Link to={`/posts/${post.id}`}><strong>{post.title}</strong> </Link>
+                }
+
+
+
                 <p>Caption: {post.caption}</p>
                 <p>
                     <strong>Comments</strong>
