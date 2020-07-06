@@ -9,7 +9,6 @@ const PostList = ({ searchTerms }) => {
         console.log(searchTerms)
         if (searchTerms === null || searchTerms === "") {
             getAllPosts();
-
         } else {
             searchPosts(searchTerms);
         }

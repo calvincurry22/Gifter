@@ -13,7 +13,7 @@ export default () => {
     const userProfileId = useRef()
     const { addPost } = useContext(PostContext)
     const history = useHistory()
-
+    const form = document.querySelector(".gifForm")
     const createNewGif = () => {
         addPost({
             title: title.current.value,
@@ -22,14 +22,6 @@ export default () => {
             dateCreated: new Date().toJSON(),
             userProfileId: userProfileId.current.value
         })
-        // .then(() => {
-
-        //     document.querySelector("#postImage").value = ""
-        //     document.querySelector("#postTitle").value = ""
-        //     document.querySelector("#postCaption").value = ""
-        //     document.querySelector("#postUserId").value = ""
-        // })
-
     }
 
     return (
