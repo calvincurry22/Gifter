@@ -2,6 +2,7 @@ import React, { useRef, useContext } from "react";
 import { Form, Button } from "reactstrap";
 import "./PostForm.css";
 import { PostContext } from "../providers/PostProvider";
+import { useHistory } from "react-router-dom";
 
 
 export default () => {
@@ -11,6 +12,7 @@ export default () => {
     const caption = useRef()
     const userProfileId = useRef()
     const { addPost } = useContext(PostContext)
+    const history = useHistory()
 
     const createNewGif = () => {
         addPost({
@@ -20,11 +22,14 @@ export default () => {
             dateCreated: new Date().toJSON(),
             userProfileId: userProfileId.current.value
         })
+        // .then(() => {
 
-        document.querySelector("#postImage").value = ""
-        document.querySelector("#postTitle").value = ""
-        document.querySelector("#postCaption").value = ""
-        document.querySelector("#postUserId").value = ""
+        //     document.querySelector("#postImage").value = ""
+        //     document.querySelector("#postTitle").value = ""
+        //     document.querySelector("#postCaption").value = ""
+        //     document.querySelector("#postUserId").value = ""
+        // })
+
     }
 
     return (
@@ -73,6 +78,7 @@ export default () => {
                 onClick={evt => {
                     evt.preventDefault()
                     createNewGif()
+                    history.push("/")
                 }}>
                 Save New Gif
                 </Button>

@@ -6,13 +6,13 @@ export const PostProvider = (props) => {
     const [posts, setPosts] = useState([]);
 
     const getAllPosts = () => {
-        return fetch("api/posts")
+        return fetch("/api/posts")
             .then((res) => res.json())
             .then(setPosts);
     };
 
     const addPost = (post) => {
-        return fetch("api/posts", {
+        return fetch("/api/posts", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export const PostProvider = (props) => {
     };
 
     const searchPosts = (keyword) => {
-        return fetch(`api/posts/search?t=${keyword}`)
+        return fetch(`/api/posts/search?t=${keyword}`)
             .then(res => res.json())
             .then(setPosts)
     }
