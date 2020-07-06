@@ -4,18 +4,18 @@ import { PostProvider } from "./providers/PostProvider";
 import PostList from "./components/PostList";
 import PostForm from "./components/PostForm";
 import SearchBar from "./components/SearchBar";
+import { BrowserRouter as Router } from "react-router-dom";
+import ApplicationViews from "./components/ApplicationViews";
 
 function App() {
-  const [searchTerms, setTerms] = useState(null)
+
   return (
     <div className="App">
-      <PostProvider>
-        <div className="formBarContainer">
-          <PostForm />
-          <SearchBar setTerms={setTerms} />
-        </div>
-        <PostList searchTerms={searchTerms} />
-      </PostProvider>
+      <Router>
+        <PostProvider>
+          <ApplicationViews />
+        </PostProvider>
+      </Router>
     </div>
   );
 }
