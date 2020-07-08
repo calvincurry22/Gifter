@@ -20,9 +20,9 @@ namespace Gifter.Repositories
             return _context.UserProfile.ToList();
         }
 
-        public UserProfile GetById(int id)
+        public UserProfile GetByFirebaseUserId(string firebaseUserId)
         {
-            return _context.UserProfile.FirstOrDefault(up => up.Id == id);
+            return _context.UserProfile.FirstOrDefault(up => up.FirebaseUserId == firebaseUserId);
         }
 
         public void Add(UserProfile up)
@@ -37,9 +37,9 @@ namespace Gifter.Repositories
             _context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(string firebaseUserId)
         {
-            var userProfile = GetById(id);
+            var userProfile = GetByFirebaseUserId(firebaseUserId);
             _context.UserProfile.Remove(userProfile);
             _context.SaveChanges();
         }
