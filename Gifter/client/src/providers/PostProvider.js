@@ -29,7 +29,12 @@ export const PostProvider = (props) => {
     };
 
     const getUserPosts = (userId) => {
-        return fetch(`/api/posts/getbyuser/${userId}`).then((res) => res.json());
+        return getToken().then((token) =>
+            fetch(`/api/posts/getbyuser/${userId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }).then((res) => res.json()));
     };
 
     const addPost = (post) => {

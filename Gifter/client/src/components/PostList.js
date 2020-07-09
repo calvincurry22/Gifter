@@ -6,7 +6,6 @@ const PostList = ({ searchTerms }) => {
     const { posts, getAllPosts, searchPosts } = useContext(PostContext);
 
     useEffect(() => {
-        console.log(searchTerms)
         if (searchTerms === null || searchTerms === "") {
             getAllPosts();
         } else {
