@@ -3,14 +3,16 @@ import { Form, Button } from "reactstrap";
 import "./PostForm.css";
 import { PostContext } from "../providers/PostProvider";
 import { useHistory } from "react-router-dom";
+import { UserProfileContext } from "../providers/UserProfileProvider";
 
 
 export default () => {
 
     const imageUrl = useRef()
+    const { getUserProfile } = useContext(UserProfileContext)
     const title = useRef()
     const caption = useRef()
-    const userProfileId = useRef()
+    const userProfile = JSON.parse(sessionStorage.getItem("userProfile"))
     const { addPost } = useContext(PostContext)
     const history = useHistory()
     const form = document.querySelector(".gifForm")
@@ -20,7 +22,7 @@ export default () => {
             imageUrl: imageUrl.current.value,
             caption: caption.current.value,
             dateCreated: new Date().toJSON(),
-            userProfileId: userProfileId.current.value
+            userProfileId: userProfile.id
         })
     }
 
@@ -57,7 +59,7 @@ export default () => {
                     />
                 </div>
             </fieldset>
-            <fieldset>
+            {/* <fieldset>
                 <div className="form-group">
                     <label htmlFor="userProfileId" className="form-label">User Id:</label>
                     <input type="text" name="userProfileId" required className="form-control"
@@ -65,7 +67,7 @@ export default () => {
                         id="postUserId"
                     />
                 </div>
-            </fieldset>
+            </fieldset> */}
             <Button type="submit" className="btn btn-primary"
                 onClick={evt => {
                     evt.preventDefault()
