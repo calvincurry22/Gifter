@@ -18,5 +18,9 @@ namespace Gifter.Models
 
         [Required]
         public string Message { get; set; }
+
+        public UserProfile UserProfile { get; set; }
+
+        public Post Post { get; set; }
     }
 }
